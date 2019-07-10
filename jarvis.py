@@ -21,13 +21,14 @@ def MyCommand():
 
 
 def CheckCommand(command):
-    if 'I need to clean my eyes' in command:
+    if 'clean' in command and 'eye' in command:
         webbrowser.get(chromium_path).open(priscille_ig)
+        Say('Sure, let me help.')
 
-    if 'What\'s up' in command:
+    elif ('what' in command or 'What') and 'up' in command:
         Say('I\'m fine, what about you?')
 
-    if 'email' in command:
+    elif 'email' in command:
         Say('I was not configured to send mails')
 
     else:
@@ -35,5 +36,6 @@ def CheckCommand(command):
 
 
 ### LIFE LOOP
+Say('Hello, Geoffrey.')
 while True:
     CheckCommand(MyCommand())
