@@ -19,6 +19,14 @@ greetings_words = [
     'good morning',
 ]
 
+wattup_words = [
+    'how are you',
+    'what\'s up',
+    'what',
+    'is',
+    'up',
+]
+
 
 ### ENGINE
 def Say(message):
@@ -45,18 +53,18 @@ def Contains(Message, Family):
 
 
 def CheckCommand(command):
-    if 'clean' in command and 'eye' in command:
+    if 'i need' in command and 'clean' in command and 'eye' in command:
         Say('Sure, let me help.')
         webbrowser.get(chromium_path).open(priscille_ig)
 
-    elif (('what' in command or 'What' in command) and 'up' in command) or ('how' in command and 'you' in command):
+    elif Contains(command, wattup_words):
         Say('I\'m fine, what about you?')
 
     elif Contains(command, greetings_words):
         Say('Hello!')
 
     elif 'email' in command:
-        Say('I was not configured to send mails')
+        Say('I was not configured to send emails')
 
     else:
         Say('I beg your pardon?')
