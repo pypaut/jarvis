@@ -5,32 +5,32 @@ import webbrowser
 import smtplib
 
 ### SETTINGS
-firefox_path = '/usr/bin/firefox'
-chromium_path = '/snap/bin/chromium'
-priscille_ig = 'https://www.instagram.com/priscillerzr'
+firefox_path = "/usr/bin/firefox"
+chromium_path = "/snap/bin/chromium"
+priscille_ig = "https://www.instagram.com/priscillerzr"
 
 
 ### DATA
 greetings_words = [
-    'hi',
-    'hello',
-    'greetings',
-    'good evening',
-    'good morning',
+    "hi",
+    "hello",
+    "greetings",
+    "good evening",
+    "good morning",
 ]
 
 wattup_words = [
-    'how are you',
-    'what\'s up',
-    'what',
-    'is',
-    'up',
+    "how are you",
+    "what's up",
+    "what",
+    "is",
+    "up",
 ]
 
 
 ### ENGINE
 def Say(message):
-    print('>> ' + message)
+    print(">> " + message)
 
 
 def MyCommand():
@@ -53,24 +53,24 @@ def Contains(Message, Family):
 
 
 def CheckCommand(command):
-    if 'i need' in command and 'clean' in command and 'eye' in command:
-        Say('Sure, let me help.')
+    if "i need" in command and "clean" in command and "eye" in command:
+        Say("Sure, let me help.")
         webbrowser.get(chromium_path).open(priscille_ig)
 
     elif Contains(command, wattup_words):
-        Say('I\'m fine, what about you?')
+        Say("I'm fine, what about you?")
 
     elif Contains(command, greetings_words):
-        Say('Hello!')
+        Say("Hello!")
 
-    elif 'email' in command:
-        Say('I was not configured to send emails')
+    elif "email" in command:
+        Say("I was not configured to send emails")
 
     else:
-        Say('I beg your pardon?')
+        Say("I beg your pardon?")
 
 
 ### LIFE LOOP
-Say('Hello, Geoffrey.')
+Say("Hello, Geoffrey.")
 while True:
     CheckCommand(MyCommand())
