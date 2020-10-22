@@ -4,11 +4,14 @@ from jarvis import Jarvis
 
 
 def main():
+    """
+    Basic loop, listen and execute.
+    """
     bot = Jarvis()
     bot.say(f"Hello, {parameters.NAME}.")
 
-    isRunning = True
-    while isRunning:
+    is_running = True
+    while is_running:
         phrase = bot.listen()
         bot.process(phrase)
 
