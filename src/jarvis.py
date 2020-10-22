@@ -1,3 +1,7 @@
+import parameters
+import subprocess
+
+
 class Jarvis:
     def __init__(self):
         pass
@@ -13,4 +17,12 @@ class Jarvis:
         if not ("jarvis" in phrase or "Jarvis" in phrase):  # Not for me
             self.say("I do nothing.")
             return
-        self.say("I cannot execute your command yet.")
+        if any(
+            w in phrase for w in ["firefox", "Firefox", "browser", "Browser"]
+        ):
+            self.say("Opening your web browser.")
+            subprocess.call("firefox")
+        elif any(w in phrase for w in ["hello", "Hello"]):
+            self.say(f"Hello, {parameters.NAME}.")
+        else:
+            self.say("I cannot execute your command yet.")
