@@ -14,12 +14,9 @@ class Jarvis:
         return phrase
 
     def process(self, phrase):
-        if not ("jarvis" in phrase or "Jarvis" in phrase):  # Not for me
-            self.say("I do nothing.")
+        if not ("jarvis" in phrase.lower()):
             return
-        if any(
-            w in phrase for w in ["firefox", "Firefox", "browser", "Browser"]
-        ):
+        if any(w in phrase.lower() for w in ["firefox", "browser"]):
             self.say("Opening your web browser.")
             subprocess.call("firefox")
         elif any(w in phrase for w in ["hello", "Hello"]):
