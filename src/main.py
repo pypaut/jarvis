@@ -13,7 +13,7 @@ def main():
     is_running = True
     while is_running:
         phrase = bot.listen()
-        bot.process(phrase)
+        bot.process(phrase.lower())
 
 
 if __name__ == "__main__":

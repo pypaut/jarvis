@@ -14,11 +14,22 @@ class Jarvis:
         return phrase
 
     def process(self, phrase):
-        if not ("jarvis" in phrase.lower()):
+        """
+        Execute actions depending on @phrase.
+
+        @phrase should always be lower case.
+        """
+        if not ("jarvis" in phrase):
             return
-        if any(w in phrase.lower() for w in ["firefox", "browser"]):
-            self.say("Opening your web browser.")
-            subprocess.call("firefox")
+        words = phrase.split(" ")
+        if words[1] == "open":
+            name = "".join(words[2:])
+            try:
+                subprocess.call(name)
+                self.say(f"Opening {name}.")
+            except FileNotFoundError:
+                self.say(f"Could not find {name}.")
+                return
         elif any(w in phrase for w in ["hello", "Hello"]):
             self.say(f"Hello, {parameters.NAME}.")
         else:
