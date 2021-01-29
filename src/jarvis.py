@@ -30,7 +30,7 @@ class Jarvis:
             except FileNotFoundError:
                 self.say(f"Could not find {name}.")
                 return
-        elif any(w in phrase for w in ["hello", "Hello"]):
+        elif "hello" in phrase:
             self.say(f"Hello, {parameters.NAME}.")
         else:
             self.say("I cannot execute your command yet.")
