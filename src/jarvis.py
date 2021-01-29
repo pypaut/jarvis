@@ -1,3 +1,4 @@
+import commands
 import parameters
 import subprocess
 
@@ -30,6 +31,11 @@ class Jarvis:
             except FileNotFoundError:
                 self.say(f"Could not find {name}.")
                 return
+        elif words[1] == "brightness":
+            try:
+                assert commands.brightness(words[2], words[3]) == 0
+            except (AssertionError, IndexError):
+                self.say("Error in brightness command.")
         elif "hello" in phrase:
             self.say(f"Hello, {parameters.NAME}.")
         else:
